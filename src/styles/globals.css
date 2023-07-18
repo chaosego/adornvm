@@ -1,0 +1,68 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* html,
+body {
+  user-select: none;
+  scroll-behavior: smooth;
+}
+
+h3 {
+  @apply text-sm md:text-xl break-words;
+}
+.nose {
+  place-content: center flex-start;
+  align-items: center;
+  display: flex;
+  flex: 0 0 auto;
+  flex-flow: row nowrap;
+  gap: 0px;
+  height: min-content;
+  overflow: visible;
+  padding: 0px;
+  position: relative;
+  width: 100%;
+}
+:root {
+  --scrollbar-thumb-home: #202023;
+  --scrollbar-track-home: #ebe4e4;
+  --scrollbar-thumb-contact: #ebe4e4;
+  --scrollbar-track-contact: #202023;
+}
+
+body.home {
+  scrollbar-color: var(--scrollbar-thumb-home) var(--scrollbar-track-home);
+  scrollbar-width: thin;
+}
+
+body.home::-webkit-scrollbar {
+  width: 0.5em;
+}
+
+body.home::-webkit-scrollbar-thumb {
+  background-color: var(--scrollbar-thumb-home);
+  border-radius: 20px;
+}
+
+body.home::-webkit-scrollbar-track {
+  background: var(--scrollbar-track-home);
+}
+
+body.contact {
+  scrollbar-color: var(--scrollbar-thumb-contact) var(--scrollbar-track-contact);
+  scrollbar-width: thin;
+}
+
+body.contact::-webkit-scrollbar {
+  width: 0.5em;
+}
+
+body.contact::-webkit-scrollbar-thumb {
+  background-color: var(--scrollbar-thumb-contact);
+  border-radius: 20px;
+}
+
+body.contact::-webkit-scrollbar-track {
+  background: var(--scrollbar-track-contact);
+}
