@@ -1,4 +1,4 @@
-import { GetServerSideProps, GetStaticPaths, GetStaticProps } from "next";
+import { GetStaticPaths, GetStaticProps } from "next";
 import Hero from "@/components/Hero";
 import { Layout } from "@/components/Layout";
 import { useEffect } from "react";
@@ -137,9 +137,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const { data: proyectos, error } = await supabase
-    .from("proyectos")
-    .select("id");
+  const { data: proyectos } = await supabase.from("proyectos").select("id");
 
   if (!proyectos) {
     return { paths: [], fallback: "blocking" };
