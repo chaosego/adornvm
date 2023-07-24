@@ -11,19 +11,7 @@ body {
 h3 {
   @apply text-sm md:text-xl break-words;
 }
-.nose {
-  place-content: center flex-start;
-  align-items: center;
-  display: flex;
-  flex: 0 0 auto;
-  flex-flow: row nowrap;
-  gap: 0px;
-  height: min-content;
-  overflow: visible;
-  padding: 0px;
-  position: relative;
-  width: 100%;
-}
+
 :root {
   --scrollbar-thumb-home: #202023;
   --scrollbar-track-home: #ebe4e4;
