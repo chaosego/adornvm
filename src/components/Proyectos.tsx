@@ -15,11 +15,7 @@ export default function Proyectos({ works }: Props) {
   const favoriteWorks = displayedWorks.filter((work) => work.favorito);
   const totalProjects = works.filter((work) => work.favorito).length;
   const handleLoadMore = () => {
-    const moreWorks = works.slice(
-      displayedWorks.length,
-      displayedWorks.length + 2
-    );
-    setDisplayedWorks((prevWorks) => [...prevWorks, ...moreWorks]);
+    setDisplayedWorks(works);
   };
 
   const cargarMas = useRef<HTMLButtonElement>(null);
@@ -95,7 +91,7 @@ export default function Proyectos({ works }: Props) {
                       className={`mt-1 h-[2px] block bg-black`}
                       style={{ width: "0%" }}
                       animate={{ width: isHovered ? "100%" : "0%" }}
-                      transition={{ duration: 2 }}
+                      transition={{ duration: 0.5 }}
                     />
                   </motion.h3>
                 </motion.button>
