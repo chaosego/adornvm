@@ -28,7 +28,7 @@ export default function Proyectos({ works }: Props) {
   const inViewProyectos = useInView(proyectos, { once: true });
   return (
     <section className="mx-8 lg:mx-16 xl:mx-24 h-full static">
-      <main className="grid grid-cols-1 lg:grid-cols-4 xl:grid-cols-12 gap-20">
+      <main className="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-12 gap-8">
         <div className="col-span-full lg:col-start-6 lg:col-end-13 justify-center items-center">
           <div className="flex flex-col items-start justify-between pt-20">
             <Line divStyle=" lg:order-1 order-2 h-[2px] lg:mb-12 bg-black w-full " />
@@ -38,10 +38,10 @@ export default function Proyectos({ works }: Props) {
       </main>
       {favoriteWorks.map((work, index) => (
         <motion.div
-          className="grid grid-cols-1 lg:grid-cols-4 xl:grid-cols-12 gap-8 pt-12"
+          className="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-12 gap-8 pt-12"
           key={work.id}
         >
-          <div className="flex flex-row lg:flex-col items-start justify-between">
+          <div className="items-start justify-between flex flex-row lg:flex-col md:col-span-full lg:col-span-5 lg:col-start-1 lg:col-end-6">
             <motion.h1
               className={`${oswald.className} text-[16vw] lg:text-[9vw] font-black leading-none `}
             >
@@ -54,8 +54,9 @@ export default function Proyectos({ works }: Props) {
               <h3>{work.tag}</h3>
             </div>
           </div>
+
           <Link
-            className="ol-span-full lg:col-start-6 lg:col-end-13 "
+            className="col-span-full lg:col-start-6 lg:col-end-13 "
             href={`/work/${work.id}`}
           >
             <motion.img
