@@ -1,6 +1,6 @@
-import { motion } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 import { Oswald } from "next/font/google";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { Line } from "./ui/Line";
 import Link from "next/link";
 import Works from "@/supabase/works";
@@ -20,6 +20,10 @@ export default function Proyectos({ works }: Props) {
     );
     setDisplayedWorks((prevWorks) => [...prevWorks, ...moreWorks]);
   };
+  const cargarMas = useRef<HTMLButtonElement>(null);
+  const inViewCarga = useInView(cargarMas);
+  const proyectos = useRef<HTMLHeadingElement>(null);
+  const inViewProyectos = useInView(proyectos, { once: true });
   return (
     <section className="mx-8 lg:mx-16 xl:mx-24 h-full static">
       <main className="grid grid-cols-1 lg:grid-cols-4 xl:grid-cols-12 gap-20">
@@ -31,7 +35,7 @@ export default function Proyectos({ works }: Props) {
         </div>
       </main>
       {favoriteWorks.map((work, index) => (
-        <motion.main
+        <motion.div
           className="grid grid-cols-1 lg:grid-cols-4 xl:grid-cols-12 gap-8 pt-12"
           key={work.id}
         >
@@ -61,7 +65,7 @@ export default function Proyectos({ works }: Props) {
 
           <div className="pb-8 col-span-full lg:col-start-6 lg:col-end-13 justify-center items-center">
             <motion.p
-              className={`${oswald.className} pb-8 font-black text-left text-[16vw] lg:text-[9vw] uppercase tracking-[-6px] lg:leading-[9vw] leading-[14vw]`}
+              className={`${oswald.className} pb-12 font-black text-left text-[16vw] lg:text-[9vw] uppercase tracking-[-6px] lg:leading-[9vw] leading-[14vw]`}
             >
               {work.id}
             </motion.p>
@@ -73,12 +77,18 @@ export default function Proyectos({ works }: Props) {
                 <motion.button
                   onClick={handleLoadMore}
                   className="col-span-full lg:col-span-5 h-[2vw] "
+                  ref={cargarMas}
+                  initial={{ opacity: 0, scale: 0.6 }}
+                  animate={
+                    inViewCarga ? { opacity: 1, scale: 1 } : { opacity: 0 }
+                  }
+                  transition={{ duration: 0.6 }}
                 >
                   <h3> + Cargar más proyectos</h3>
                 </motion.button>
               )}
           </div>
-        </motion.main>
+        </motion.div>
       ))}
     </section>
   );

@@ -20,4 +20,19 @@ const programs = [
   "Mailrelay, MailChimp, Sendinblue",
 ];
 
-export { skills, programs };
+const links = [
+  {
+    href: "https://www.linkedin.com/in/andrea-ortiz-ruiz/",
+    name: "LinkedIn",
+  },
+  {
+    href: "https://www.instagram.com/adornvm/",
+    name: "Instagram",
+  },
+  {
+    href: "https://www.behance.net/adornvm",
+    name: "Email",
+  },
+];
+
+export { skills, programs, links };

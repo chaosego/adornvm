@@ -27,8 +27,8 @@ export default function Footer() {
     <motion.footer
       ref={ref}
       animate={isInView ? { opacity: 1 } : { opacity: 0 }}
-      transition={{ duration: 2}}
-      className={`${inter.className} " mx-8 lg:mx-16 xl:mx-24 px-4 py-8 sm:px-6 lg:px-8 bg-transparent "`}
+      transition={{ duration: 2 }}
+      className={`${inter.className} " mx-8 lg:mx-16 xl:mx-24 py-8 bg-transparent "`}
     >
       <div className="flex md:items-center justify-between ">
         {showScroll && (

@@ -20,6 +20,9 @@ export const Navigation = ({ color }: NavigationProps) => {
           <h3>Adrián Darío Ortiz</h3>
         </Link>
         <div className="flex gap-8">
+          <Link href="/photos">
+            <h3>Fotografías</h3>
+          </Link>
           <Link href="/contacto">
             <h3>Contacto</h3>
           </Link>

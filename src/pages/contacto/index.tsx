@@ -8,7 +8,7 @@ import { supabase } from "@/supabase/config";
 import Works from "@/supabase/works";
 import { motion, useInView } from "framer-motion";
 import Link from "next/link";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 interface Props {
   proyectos: Works[];
@@ -29,6 +29,9 @@ export default function Home({ proyectos }: Props) {
   };
   const h1 = useRef<HTMLDivElement>(null);
   const viewH1 = useInView(h1, { once: true });
+  const [isHovered, setIsHovered] = useState(false);
+  const [isHovered2, setIsHovered2] = useState(false);
+  const [isHovered3, setIsHovered3] = useState(false);
 
   return (
     <section className=" bg-[#202023] text-[#EBE4E4]">
@@ -75,9 +78,48 @@ export default function Home({ proyectos }: Props) {
           </div>
 
           <div className="col-span-full lg:col-start-4 lg:col-end-13 h-auto flex flex-col pb-14 text-3xl text-[#707070] gap-4">
-            <a href="https://www.instagram.com/ador.nvm/">LinkedIn</a>
-            <a href="https://www.instagram.com/ador.nvm/">Email</a>
-            <a href="https://www.instagram.com/ador.nvm/">Instagram</a>
+            <motion.a
+              href="https://www.instagram.com/ador.nvm/"
+              className="hover:cursor-pointer hover:opacity-100 hover:text-[white]  opacity-50"
+              onHoverStart={() => setIsHovered(true)}
+              onHoverEnd={() => setIsHovered(false)}
+            >
+              Instagram
+              <motion.span
+                className={`mt-1 h-[2px] block bg-white`}
+                style={{ width: "0%" }}
+                animate={{ width: isHovered ? "100%" : "0%" }}
+                transition={{ duration: 2 }}
+              />
+            </motion.a>
+            <motion.a
+              href="https://www.instagram.com/ador.nvm/"
+              className="hover:cursor-pointer hover:opacity-100 hover:text-[white]  opacity-50"
+              onHoverStart={() => setIsHovered2(true)}
+              onHoverEnd={() => setIsHovered2(false)}
+            >
+              Linkedin
+              <motion.span
+                className={`mt-1 h-[2px] block bg-white`}
+                style={{ width: "0%" }}
+                animate={{ width: isHovered2 ? "100%" : "0%" }}
+                transition={{ duration: 2 }}
+              />
+            </motion.a>
+            <motion.a
+              href="https://www.instagram.com/ador.nvm/"
+              className="hover:cursor-pointer hover:opacity-100 hover:text-[white]  opacity-50"
+              onHoverStart={() => setIsHovered3(true)}
+              onHoverEnd={() => setIsHovered3(false)}
+            >
+              Email
+              <motion.span
+                className={`mt-1 h-[2px] block bg-white`}
+                style={{ width: "0%" }}
+                animate={{ width: isHovered3 ? "100%" : "0%" }}
+                transition={{ duration: 2 }}
+              />
+            </motion.a>
           </div>
         </section>
 
