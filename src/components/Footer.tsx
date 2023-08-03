@@ -42,10 +42,10 @@ export default function Footer() {
         )}
 
         <div className="flex text-right md:text-left md:gap-4 md:flex-row flex-col uppercase">
-          <a href="https://www.instagram.com/alejandro.ramirez.ruiz/">
+          <a href="https://www.instagram.com/ador.nvm/" target="_blank">
             Instagram
           </a>
-          <a href="https://www.linkedin.com/in/alejandro-ramirez-ruiz-2a1b3b1b0/">
+          <a href="https://www.linkedin.com/in/adornvm/" target="_blank">
             LinkedIn
           </a>
           <a href="#">Email</a>

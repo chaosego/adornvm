@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 
 interface Props {
@@ -24,7 +24,7 @@ export default function SoftSkills({ title, items }: Props) {
               transition={{
                 type: "spring",
                 stiffness: 250,
-                damping: 150,
+                damping: 70,
                 mass: 1,
                 delay: 0.01 + index * 0.1,
               }}

@@ -6,9 +6,9 @@ import { Line } from "@/components/ui/Line";
 import { programs, skills } from "@/data/dto";
 import { supabase } from "@/supabase/config";
 import Works from "@/supabase/works";
-import { motion, useInView } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import Link from "next/link";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 
 interface Props {
   proyectos: Works[];
@@ -19,6 +19,7 @@ export default function Home({ proyectos }: Props) {
     document.body.classList.add("contact");
     return () => document.body.classList.remove("contact");
   }, []);
+
   const scrollVariants = {
     hidden: { transform: "translate(0%, 100%)" },
     visible: {
@@ -27,12 +28,16 @@ export default function Home({ proyectos }: Props) {
       delay: 2,
     },
   };
-  const h1 = useRef<HTMLDivElement>(null);
-  const viewH1 = useInView(h1, { once: true });
+  const [activeProject, setActiveProject] = useState<number | null>(null);
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+
   const [isHovered, setIsHovered] = useState(false);
   const [isHovered2, setIsHovered2] = useState(false);
   const [isHovered3, setIsHovered3] = useState(false);
-
+  const variants = {
+    hidden: { opacity: 0, scale: 0.5 },
+    visible: { opacity: 1, scale: 1 },
+  };
   return (
     <section className=" bg-[#202023] text-[#EBE4E4]">
       <Layout title="ADRIAN DARIO ORTIZ RAMOS | Contacto" color="bg-[#EBE4E4]">
@@ -53,10 +58,7 @@ export default function Home({ proyectos }: Props) {
         />
 
         <section className="mx-8 lg:mx-16 xl:mx-24 h-full  grid grid-cols-1 md:grid-cols-4 lg:grid-cols-12  gap-12">
-          <motion.div
-            className=" col-span-full lg:col-start-4 lg:col-end-13 text-2xl flex justify-start items-start lg:text-3xl mx-auto mb-20 tracking-[-1px] h-full "
-            ref={h1}
-          >
+          <motion.div className=" col-span-full lg:col-start-4 lg:col-end-13 text-2xl flex justify-start items-start lg:text-3xl mx-auto mb-20 tracking-[-1px] h-full ">
             <div className="overflow-hidden">
               <h1>
                 Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facere
@@ -79,10 +81,11 @@ export default function Home({ proyectos }: Props) {
 
           <div className="col-span-full lg:col-start-4 lg:col-end-13 h-auto flex flex-col pb-14 text-3xl text-[#707070] gap-4">
             <motion.a
-              href="https://www.instagram.com/ador.nvm/"
+              href="https://www.linkedin.com/in/adornvm/"
               className="hover:cursor-pointer hover:opacity-100 hover:text-[white] opacity-50 w-max"
               onHoverStart={() => setIsHovered(true)}
               onHoverEnd={() => setIsHovered(false)}
+              target="_blank"
             >
               Instagram
               <motion.span
@@ -97,6 +100,7 @@ export default function Home({ proyectos }: Props) {
               className="hover:cursor-pointer hover:opacity-100 hover:text-[white]  w-max opacity-50"
               onHoverStart={() => setIsHovered2(true)}
               onHoverEnd={() => setIsHovered2(false)}
+              target="_blank"
             >
               Linkedin
               <motion.span
@@ -107,10 +111,11 @@ export default function Home({ proyectos }: Props) {
               />
             </motion.a>
             <motion.a
-              href="https://www.instagram.com/ador.nvm/"
+              href="mailto:adriandarioortizramos@gmail.com"
               className="hover:cursor-pointer hover:opacity-100 hover:text-[white]  w-max opacity-50"
               onHoverStart={() => setIsHovered3(true)}
               onHoverEnd={() => setIsHovered3(false)}
+              target="_blank"
             >
               Email
               <motion.span
@@ -134,19 +139,54 @@ export default function Home({ proyectos }: Props) {
           </div>
           <div className="col-span-full lg:col-start-4 lg:col-end-13 flex items-center leading-[80px] md:leading-[150px] text-[7vw] md:text-[5vw] pt-20 tracking-[-1px]">
             <div>
-              {proyectos.map((proyectos, index) => (
-                <div
-                  key={index}
-                  className=" lg:hover:cursor-pointer lg:hover:opacity-100 w-auto lg:opacity-50"
-                >
-                  <Link
-                    href={`work/${proyectos.id}`}
-                    className=" font-normal text-left"
-                  >
-                    {proyectos.id}
-                  </Link>
-                </div>
-              ))}
+              <AnimatePresence>
+                <AnimatePresence>
+                  {proyectos.map((proyectos, index) => (
+                    <div
+                      key={index}
+                      className=" hover:cursor-pointer hover:opacity-100 w-auto opacity-50"
+                      onMouseMove={(event) => {
+                        setMousePosition({
+                          x: event.clientX,
+                          y: event.clientY,
+                        });
+                      }}
+                      onMouseEnter={() => setActiveProject(index)}
+                      onMouseLeave={() => setActiveProject(null)}
+                    >
+                      <Link
+                        href={`work/${proyectos.id}`}
+                        className=" font-normal text-left"
+                      >
+                        {proyectos.id}
+                      </Link>
+                    </div>
+                  ))}
+                  {activeProject !== null && (
+                    <motion.img
+                      className="absolute w-2/4 h-2/4 hidden  rounded-lg lg:block object-cover"
+                      style={{
+                        position: "fixed",
+                        left: mousePosition.x,
+                        top: mousePosition.y,
+                      }}
+                      src={proyectos[activeProject].portada}
+                      initial={{ opacity: 0, scale: 0.5 }}
+                      animate={{
+                        opacity: 1,
+                        scale: 1,
+                        transition: { duration: 0.3 },
+                      }}
+                      exit={{
+                        opacity: 0,
+                        scale: 0.5,
+                        transition: { duration: 0.3 },
+                      }}
+                      transition={{ duration: 0.3 }}
+                    />
+                  )}
+                </AnimatePresence>
+              </AnimatePresence>
             </div>
           </div>
         </section>
