@@ -88,7 +88,7 @@ export default function Page({ workId }: Props) {
           </article>
           <section className="h-full w-full my-20">
             <div className="grid grid-cols-1 lg:grid-cols-6 xl:grid-cols-12 gap-20">
-              {workId.galeria.map((item) => (
+              {workId.galeria?.map((item) => (
                 <motion.img
                   key={item.src}
                   src={item.src}
