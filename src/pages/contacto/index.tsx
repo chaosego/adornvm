@@ -89,7 +89,7 @@ export default function Home({ proyectos }: Props) {
                 className={`mt-1 h-[2px] block bg-white `}
                 style={{ width: "0%" }}
                 animate={{ width: isHovered ? "100%" : "0%" }}
-                transition={{ duration: 2 }}
+                transition={{ duration: 0.4 }}
               />
             </motion.a>
             <motion.a
@@ -103,7 +103,7 @@ export default function Home({ proyectos }: Props) {
                 className={`mt-1 h-[2px] block bg-white`}
                 style={{ width: "0%" }}
                 animate={{ width: isHovered2 ? "100%" : "0%" }}
-                transition={{ duration: 2 }}
+                transition={{ duration: 0.4 }}
               />
             </motion.a>
             <motion.a
@@ -117,7 +117,7 @@ export default function Home({ proyectos }: Props) {
                 className={`mt-1 h-[2px] block bg-white`}
                 style={{ width: "0%" }}
                 animate={{ width: isHovered3 ? "100%" : "0%" }}
-                transition={{ duration: 2 }}
+                transition={{ duration: 0.4 }}
               />
             </motion.a>
           </div>

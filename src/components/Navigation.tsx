@@ -13,7 +13,7 @@ export const Navigation = ({ color }: NavigationProps) => {
   const lineInView = useInView(linea, { once: true });
   return (
     <nav
-      className={`${inter.className} " mx-8 lg:mx-16 xl:mx-24 bg-transparent items-center justify-between relative z-50 py-9 "`}
+      className={`${inter.className} " mx-8 lg:mx-16 xl:mx-24 bg-transparent items-center justify-between relative z-50 py-8 "`}
     >
       <div className="flex justify-between">
         <Link href="/">
@@ -30,7 +30,7 @@ export const Navigation = ({ color }: NavigationProps) => {
       </div>
       <motion.span
         ref={linea}
-        className={`mt-1 h-[2px] block ${color ? color : "bg-black"}`}
+        className={`mt-2 h-[2px] block ${color ? color : "bg-black"}`}
         style={{ width: "0%" }}
         animate={lineInView ? { width: "100%" } : { width: "0%" }}
         transition={{ duration: 2 }}

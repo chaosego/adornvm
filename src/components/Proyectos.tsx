@@ -36,7 +36,7 @@ export default function Proyectos({ works }: Props) {
       </main>
       {favoriteWorks.map((work, index) => (
         <motion.div
-          className="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-12 gap-8 pt-12"
+          className="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-12 gap-6 pt-12"
           key={work.id}
         >
           <div className="items-start justify-between flex flex-row lg:flex-col md:col-span-full lg:col-span-5 lg:col-start-1 lg:col-end-6">
