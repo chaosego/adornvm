@@ -13,7 +13,7 @@ export const Navigation = ({ color }: NavigationProps) => {
   const lineInView = useInView(linea, { once: true });
   return (
     <nav
-      className={`${inter.className} " mx-8 lg:mx-16 xl:mx-24 bg-transparent items-center justify-between relative z-50 py-8 "`}
+      className={`${inter.className} " mx-8 lg:mx-16 xl:mx-24 bg-transparent items-center justify-between relative z-50 py-9 "`}
     >
       <div className="flex justify-between">
         <Link href="/">

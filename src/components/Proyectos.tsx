@@ -24,8 +24,6 @@ export default function Proyectos({ works }: Props) {
 
   const cargarMas = useRef<HTMLButtonElement>(null);
   const inViewCarga = useInView(cargarMas);
-  const proyectos = useRef<HTMLHeadingElement>(null);
-  const inViewProyectos = useInView(proyectos, { once: true });
   return (
     <section className="mx-8 lg:mx-16 xl:mx-24 h-full static">
       <main className="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-12 gap-8">
