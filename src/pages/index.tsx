@@ -39,15 +39,6 @@ export default function Home({ proyectos }: Props) {
   );
 }
 
-// export async function getServerSideProps() {
-//   const { data: proyectos } = await supabase.from("proyectos").select("*");
-//   return {
-//     props: {
-//       proyectos,
-//     },
-//   };
-// }
-
 export async function getStaticProps() {
   const { data: proyectos } = await supabase.from("proyectos").select("*");
   return {

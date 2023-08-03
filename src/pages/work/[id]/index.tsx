@@ -67,7 +67,7 @@ export default function Page({ workId }: Props) {
               <div className="flex flex-col">
                 <h3>creditos</h3>
                 <h3 className="text-xs flex flex-col text-right">
-                  {workId.creditos.map((item) => (
+                  {workId.creditos?.map((item) => (
                     <span key={item} className="mr-2">
                       {item}{" "}
                     </span>
