@@ -80,21 +80,21 @@ export default function Home({ proyectos }: Props) {
           <div className="col-span-full lg:col-start-4 lg:col-end-13 h-auto flex flex-col pb-14 text-3xl text-[#707070] gap-4">
             <motion.a
               href="https://www.instagram.com/ador.nvm/"
-              className="hover:cursor-pointer hover:opacity-100 hover:text-[white]   opacity-50"
+              className="hover:cursor-pointer hover:opacity-100 hover:text-[white] opacity-50 w-max"
               onHoverStart={() => setIsHovered(true)}
               onHoverEnd={() => setIsHovered(false)}
             >
               Instagram
               <motion.span
-                className={`mt-1 h-[2px] block bg-white w-5`}
+                className={`mt-1 h-[2px] block bg-white `}
                 style={{ width: "0%" }}
-                animate={{ width: isHovered ? "12%" : "0%" }}
+                animate={{ width: isHovered ? "100%" : "0%" }}
                 transition={{ duration: 2 }}
               />
             </motion.a>
             <motion.a
               href="https://www.instagram.com/ador.nvm/"
-              className="hover:cursor-pointer hover:opacity-100 hover:text-[white]  opacity-50"
+              className="hover:cursor-pointer hover:opacity-100 hover:text-[white]  w-max opacity-50"
               onHoverStart={() => setIsHovered2(true)}
               onHoverEnd={() => setIsHovered2(false)}
             >
@@ -102,13 +102,13 @@ export default function Home({ proyectos }: Props) {
               <motion.span
                 className={`mt-1 h-[2px] block bg-white`}
                 style={{ width: "0%" }}
-                animate={{ width: isHovered2 ? "12%" : "0%" }}
+                animate={{ width: isHovered2 ? "100%" : "0%" }}
                 transition={{ duration: 2 }}
               />
             </motion.a>
             <motion.a
               href="https://www.instagram.com/ador.nvm/"
-              className="hover:cursor-pointer hover:opacity-100 hover:text-[white]  opacity-50"
+              className="hover:cursor-pointer hover:opacity-100 hover:text-[white]  w-max opacity-50"
               onHoverStart={() => setIsHovered3(true)}
               onHoverEnd={() => setIsHovered3(false)}
             >
@@ -116,7 +116,7 @@ export default function Home({ proyectos }: Props) {
               <motion.span
                 className={`mt-1 h-[2px] block bg-white`}
                 style={{ width: "0%" }}
-                animate={{ width: isHovered3 ? "7%" : "0%" }}
+                animate={{ width: isHovered3 ? "100%" : "0%" }}
                 transition={{ duration: 2 }}
               />
             </motion.a>

@@ -11,6 +11,7 @@ interface Props {
 }
 export default function Proyectos({ works }: Props) {
   const [displayedWorks, setDisplayedWorks] = useState(works.slice(0, 3));
+  const [isHovered, setIsHovered] = useState(false);
   const favoriteWorks = displayedWorks.filter((work) => work.favorito);
   const totalProjects = works.filter((work) => work.favorito).length;
   const handleLoadMore = () => {
@@ -20,6 +21,7 @@ export default function Proyectos({ works }: Props) {
     );
     setDisplayedWorks((prevWorks) => [...prevWorks, ...moreWorks]);
   };
+
   const cargarMas = useRef<HTMLButtonElement>(null);
   const inViewCarga = useInView(cargarMas);
   const proyectos = useRef<HTMLHeadingElement>(null);
@@ -84,7 +86,19 @@ export default function Proyectos({ works }: Props) {
                   }
                   transition={{ duration: 0.6 }}
                 >
-                  <h3> + Cargar más proyectos</h3>
+                  <motion.h3
+                    className="hover:cursor-pointer w-max "
+                    onHoverStart={() => setIsHovered(true)}
+                    onHoverEnd={() => setIsHovered(false)}
+                  >
+                    + Cargar más proyectos
+                    <motion.span
+                      className={`mt-1 h-[2px] block bg-black`}
+                      style={{ width: "0%" }}
+                      animate={{ width: isHovered ? "100%" : "0%" }}
+                      transition={{ duration: 2 }}
+                    />
+                  </motion.h3>
                 </motion.button>
               )}
           </div>
