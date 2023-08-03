@@ -39,9 +39,7 @@ export default function Proyectos({ works }: Props) {
             <motion.h1
               className={`${oswald.className} text-[16vw] lg:text-[9vw] font-black leading-none `}
             >
-              {`${(index + 1)
-                .toString()
-                .padStart(2, "0")}/${totalProjects
+              {`${(index + 1).toString().padStart(2, "0")}/${totalProjects
                 .toString()
                 .padStart(2, "0")}`}
             </motion.h1>
@@ -63,23 +61,23 @@ export default function Proyectos({ works }: Props) {
 
           <div className="pb-8 col-span-full lg:col-start-6 lg:col-end-13 justify-center items-center">
             <motion.p
-              className={`${oswald.className} font-black text-left text-[16vw] lg:text-[9vw] uppercase tracking-[-6px] lg:leading-[9vw] leading-[14vw]`}
+              className={`${oswald.className} pb-8 font-black text-left text-[16vw] lg:text-[9vw] uppercase tracking-[-6px] lg:leading-[9vw] leading-[14vw]`}
             >
               {work.id}
             </motion.p>
-          </div>
-          {index !== favoriteWorks.length - 1 && (
-            <span className="col-span-full h-[2px] bg-black w-full"></span>
-          )}
-          {index === favoriteWorks.length - 1 &&
-            displayedWorks.length < works.length && (
-              <motion.button
-                onClick={handleLoadMore}
-                className="col-span-full lg:col-span-5 h-[2vw] "
-              >
-                <h3>Cargar más proyectos</h3>
-              </motion.button>
+            {index !== favoriteWorks.length - 1 && (
+              <span className="col-span-full h-[2px] bg-black w-full"></span>
             )}
+            {index === favoriteWorks.length - 1 &&
+              displayedWorks.length < works.length && (
+                <motion.button
+                  onClick={handleLoadMore}
+                  className="col-span-full lg:col-span-5 h-[2vw] "
+                >
+                  <h3> + Cargar más proyectos</h3>
+                </motion.button>
+              )}
+          </div>
         </motion.main>
       ))}
     </section>
