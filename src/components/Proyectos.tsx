@@ -12,7 +12,7 @@ interface Props {
 export default function Proyectos({ works }: Props) {
   const [displayedWorks, setDisplayedWorks] = useState(works.slice(0, 3));
   const favoriteWorks = displayedWorks.filter((work) => work.favorito);
-
+  const totalProjects = works.filter((work) => work.favorito).length;
   const handleLoadMore = () => {
     const moreWorks = works.slice(
       displayedWorks.length,
@@ -41,7 +41,7 @@ export default function Proyectos({ works }: Props) {
             >
               {`${(index + 1)
                 .toString()
-                .padStart(2, "0")}/${favoriteWorks.length
+                .padStart(2, "0")}/${totalProjects
                 .toString()
                 .padStart(2, "0")}`}
             </motion.h1>
