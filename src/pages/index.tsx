@@ -34,7 +34,6 @@ export default function Home({ proyectos }: Props) {
           mainStyles=" h-full "
           text="DIGITAL DESIGNER & ART DIRECTOR"
           styles={
-            " pb-[100px] " +
             " font-black text-wrap text-left text-[16vw] " +
             " tracking-[-3px]  md:tracking-[-10px] lg:tracking-[-12px] xl:tracking-[-13px] 2xl:tracking-[-20px]" +
             " leading-[14vw]"
@@ -130,7 +129,7 @@ export default function Home({ proyectos }: Props) {
                   />
                 </motion.button>
               </div>
-            )}
+            )}VW
           </div>
         </section>
 

@@ -1,13 +1,12 @@
 import { GetStaticPaths, GetStaticProps } from "next";
 import Hero from "@/components/Hero";
 import { Layout } from "@/components/Layout";
-import { useEffect, useRef } from "react";
+import { useEffect } from "react";
 import Works from "@/supabase/works";
-import { AnimatePresence, motion, useInView } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { Line } from "@/components/ui/Line";
 import { supabase } from "@/supabase/config";
 import GalleryImage from "../components/GalleryImage";
-
 
 interface Props {
   workId: Works;
@@ -27,13 +26,13 @@ export default function Page({ workId }: Props) {
           className=" absolute bottom-0 right-0 z-[1] object-cover object-center h-full w-full "
         />
         <Hero
-          mainStyles=" flex items-end justify-start h-screen"
+          mainStyles="  h-screen"
           text={workId.id}
           styles={
-            " pb-[150px] " +
             " font-black text-wrap text-left text-[10vw] md:text-[7vw] relative z-10 " +
             " tracking-[-3px] lg:tracking-[-6px] " +
-            " leading-[11vw] md:leading-[6vw] "
+            " leading-[160vh] " 
+            //bajar el texto en mobile y tablet y subirlo en desktop y laptop
           }
         />
         <main className="mx-8 lg:mx-24  ">
@@ -130,7 +129,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
   }
 
   const paths = proyectos.map(({ id }) => ({
-    params: { id: encodeURIComponent(id) },
+    params: { id: encodeURIComponent(id).toLowerCase() },
   }));
 
   return { paths, fallback: "blocking" };

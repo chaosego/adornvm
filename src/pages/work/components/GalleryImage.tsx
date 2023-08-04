@@ -29,7 +29,7 @@ const GalleryImage = ({ src, size_keyword }: ImageProps) => {
       src={src}
       alt={src}
       whileHover={{ scale: 1.1 }}
-      className={`col-span-full lg:${sizeConfig[size_keyword]} h-full object-cover`}
+      className={`${sizeConfig[size_keyword]} h-full object-cover`}
       ref={imgRef}
       initial={{ opacity: 0, scale: 0.5 }}
       animate={imgInView ? { opacity: 1, scale: 1 } : {}}
