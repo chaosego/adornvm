@@ -36,7 +36,7 @@ export default function Page({ workId }: Props) {
         />
         <main className="mx-8 lg:mx-24  ">
           <article className="h-full">
-            <span className="h-[1px] my-4 block bg-[#EBE4E4] "></span>
+            <span className="h-[1px] mb-4 block bg-[#EBE4E4] "></span>
             <div className="flex justify-between uppercase ">
               <div className="flex flex-col">
                 <h3>cliente</h3>
