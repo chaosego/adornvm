@@ -40,7 +40,6 @@ export const Layout = ({ children, title, color }: LayoutProps) => {
         <meta property="og:url" content="https://adornvm.com/" />
         <meta property="og:image" content="/Portfolio_ador_image_01.jpg" />
         <link rel="icon" href="/favicon.png" />
-        <link rel="manifest" href="/manifest.json" />
       </Head>
       <Navigation color={color} />
       <div className={`${inter.className} `}>{children}</div>

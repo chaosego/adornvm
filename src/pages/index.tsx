@@ -26,6 +26,7 @@ export default function Home({ proyectos }: Props) {
   const [isHovered, setIsHovered] = useState(false);
   const cargarMas = useRef<HTMLButtonElement>(null);
   const inViewCarga = useInView(cargarMas);
+
   return (
     <main className=" bg-[#EBE4E4] text-[#202023]">
       <Layout title="ADRIAN DARIO ORTIZ RAMOS">
@@ -58,55 +59,79 @@ export default function Home({ proyectos }: Props) {
           ))}
           <div className="flex justify-center items-center pt-12">
             {displayedWorks.length < proyectos.length ? (
-              <motion.button
-                onClick={handleLoadMore}
-                className="col-span-full lg:col-span-5 h-[2vw] "
-                ref={cargarMas}
-                initial={{ opacity: 0, scale: 0.6 }}
-                animate={
-                  inViewCarga ? { opacity: 1, scale: 1 } : { opacity: 0 }
-                }
-                transition={{ duration: 0.6 }}
+              <div
+                className="relative"
+                onMouseEnter={() => setIsHovered(true)}
+                onMouseLeave={() => setIsHovered(false)}
               >
-                <motion.h3
-                  className="hover:cursor-pointer w-max "
-                  onHoverStart={() => setIsHovered(true)}
-                  onHoverEnd={() => setIsHovered(false)}
+                <motion.button
+                  onClick={handleLoadMore}
+                  className="col-span-full lg:col-span-5 h-[2vw] "
+                  ref={cargarMas}
+                  initial={{ opacity: 0, scale: 0.6 }}
+                  animate={
+                    inViewCarga ? { opacity: 1, scale: 1 } : { opacity: 0 }
+                  }
+                  transition={{ duration: 0.6 }}
                 >
-                  + Cargar más proyectos
+                  <motion.h3 className="flex justify-center items-center text-[#202023] font-bold text-[1.2rem] hover:cursor-pointer w-max  transition-all duration-300 ease-in-out">
+                    Cargar más
+                    <motion.svg
+                      animate={{ rotate: isHovered ? 0 : 180 }}
+                      transition={{ duration: 0.3 }}
+                      className="w-6 h-6 ml-2"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path d="M19 9l-7 7-7-7" />
+                    </motion.svg>
+                  </motion.h3>
                   <motion.span
-                    className={`mt-1 h-[2px] block bg-black`}
+                    className={`h-[2px] block bg-black absolute bottom-0 left-0 right-0 mt-4`}
                     style={{ width: "0%" }}
                     animate={{ width: isHovered ? "100%" : "0%" }}
                     transition={{ duration: 0.5 }}
                   />
-                </motion.h3>
-              </motion.button>
+                </motion.button>
+              </div>
             ) : (
-              <motion.button
-                onClick={() => setDisplayedWorks(proyectos.slice(0, 4))}
-                className="col-span-full lg:col-span-5 h-[2vw] "
-                ref={cargarMas}
-                initial={{ opacity: 0, scale: 0.6 }}
-                animate={
-                  inViewCarga ? { opacity: 1, scale: 1 } : { opacity: 0 }
-                }
-                transition={{ duration: 0.6 }}
+              <div
+                className="relative"
+                onMouseEnter={() => setIsHovered(true)}
+                onMouseLeave={() => setIsHovered(false)}
               >
-                <motion.h3
-                  className="hover:cursor-pointer w-max "
-                  onHoverStart={() => setIsHovered(true)}
-                  onHoverEnd={() => setIsHovered(false)}
+                <motion.button
+                  onClick={() => setDisplayedWorks(proyectos.slice(0, 4))}
+                  className="col-span-full lg:col-span-5 h-[2vw] "
+                  ref={cargarMas}
+                  initial={{ opacity: 0, scale: 0.6 }}
+                  animate={
+                    inViewCarga ? { opacity: 1, scale: 1 } : { opacity: 0 }
+                  }
+                  transition={{ duration: 0.6 }}
                 >
-                  + Ver menos proyectos
+                  <motion.h3 className="flex justify-center items-center text-[#202023] font-bold text-[1.2rem] hover:cursor-pointer w-max  transition-all duration-300 ease-in-out ">
+                    Ver menos
+                    <motion.svg
+                      animate={{ rotate: isHovered ? 180 : 0 }}
+                      transition={{ duration: 0.3 }}
+                      className="w-6 h-6 ml-2"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path d="M19 9l-7 7-7-7" />
+                    </motion.svg>
+                  </motion.h3>
                   <motion.span
-                    className={`mt-1 h-[2px] block bg-black`}
+                    className={`h-[2px] block bg-black absolute bottom-0 left-0 right-0 mt-4`}
                     style={{ width: "0%" }}
                     animate={{ width: isHovered ? "100%" : "0%" }}
                     transition={{ duration: 0.5 }}
                   />
-                </motion.h3>
-              </motion.button>
+                </motion.button>
+              </div>
             )}
           </div>
         </section>
