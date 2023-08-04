@@ -1,24 +1,13 @@
 import { GetStaticPaths, GetStaticProps } from "next";
 import Hero from "@/components/Hero";
 import { Layout } from "@/components/Layout";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import Works from "@/supabase/works";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion, useInView } from "framer-motion";
 import { Line } from "@/components/ui/Line";
 import { supabase } from "@/supabase/config";
+import GalleryImage from "../components/GalleryImage";
 
-interface SizeConfigI {
-  [key: string]: string;
-}
-const sizeConfig: SizeConfigI = {
-  grid5izq: "col-span-full lg:col-start-1 lg:col-end-6 ",
-  grid7dr: "col-span-full lg:col-start-6 lg:col-end-13",
-  gridSolo7dr: "col-span-full lg:col-start-6 lg:col-end-13",
-  gridSolo7izq: "col-span-full lg:col-start-1 lg:col-end-8 ",
-  gridSolo8center: "col-span-full lg:col-start-3 lg:col-end-11 ",
-  gridSolo4izq: "col-span-full lg:col-start-1 lg:col-end-7 ",
-  gridSolo4dr: "col-span-full lg:col-start-7 lg:col-end-13 ",
-};
 
 interface Props {
   workId: Works;
@@ -28,6 +17,7 @@ export default function Page({ workId }: Props) {
     document.body.classList.add("contact");
     return () => document.body.classList.remove("contact");
   }, []);
+
   return (
     <section className="bg-[#202023] text-[#EBE4E4]">
       <Layout title={workId.id} color="bg-[#EBE4E4]">
@@ -69,7 +59,7 @@ export default function Page({ workId }: Props) {
                 <h3 className="text-xs flex flex-col text-right">
                   {workId.creditos?.map((item) => (
                     <span key={item} className="mr-2">
-                      {item}{" "}
+                      {item}
                     </span>
                   ))}
                 </h3>
@@ -87,19 +77,17 @@ export default function Page({ workId }: Props) {
             </div>
           </article>
           <section className="h-full w-full my-20">
-            <div className="grid grid-cols-1 lg:grid-cols-6 xl:grid-cols-12 gap-20">
-              {workId.galeria?.map((item) => (
-                <motion.img
-                  key={item.src}
-                  src={item.src}
-                  alt="alt"
-                  className={` ${
-                    sizeConfig[item.size_keyword]
-                  } h-full object-cover `}
-                  whileHover={{ scale: 1.1, transition: { duration: 0.5 } }}
-                ></motion.img>
-              ))}
-            </div>
+            <motion.div className="grid grid-cols-1 lg:grid-cols-6 xl:grid-cols-12 gap-20">
+              <AnimatePresence>
+                {workId.galeria?.map((item, index) => (
+                  <GalleryImage
+                    key={index.toString()}
+                    src={item.src}
+                    size_keyword={item.size_keyword}
+                  />
+                ))}
+              </AnimatePresence>
+            </motion.div>
           </section>
         </main>
         <div className="mx-8 lg:mx-16 xl:mx-24 pt-12 flex justify-center items-center ">
@@ -109,8 +97,6 @@ export default function Page({ workId }: Props) {
     </section>
   );
 }
-
-// This is the adjusted getStaticProps function
 export const getStaticProps: GetStaticProps = async (context) => {
   const id = context.params?.id as string;
   const decodedId = decodeURIComponent(id);

@@ -20,24 +20,13 @@ export default function Home({ proyectos }: Props) {
     return () => document.body.classList.remove("contact");
   }, []);
 
-  const scrollVariants = {
-    hidden: { transform: "translate(0%, 100%)" },
-    visible: {
-      transform: "translate(0px, 0px)",
-      staggerChildren: 1,
-      delay: 2,
-    },
-  };
   const [activeProject, setActiveProject] = useState<number | null>(null);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
 
   const [isHovered, setIsHovered] = useState(false);
   const [isHovered2, setIsHovered2] = useState(false);
   const [isHovered3, setIsHovered3] = useState(false);
-  const variants = {
-    hidden: { opacity: 0, scale: 0.5 },
-    visible: { opacity: 1, scale: 1 },
-  };
+
   return (
     <section className=" bg-[#202023] text-[#EBE4E4]">
       <Layout title="ADRIAN DARIO ORTIZ RAMOS | Contacto" color="bg-[#EBE4E4]">

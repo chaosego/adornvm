@@ -40,6 +40,7 @@ export default function Hero({
                     mass: 1,
                     delay: 0.1 + index * 0.2,
                   }}
+                  
                 >
                   {line}
                 </motion.span>
