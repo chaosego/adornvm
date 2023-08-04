@@ -87,7 +87,7 @@ export default function Home({ proyectos }: Props) {
                     </motion.svg>
                   </motion.h3>
                   <motion.span
-                    className={`h-[2px] block bg-black absolute bottom-0 left-0 right-0 mt-4`}
+                    className={`h-[2px] hidden md:block bg-black absolute bottom-0 left-0 right-0 mt-4`}
                     style={{ width: "0%" }}
                     animate={{ width: isHovered ? "100%" : "0%" }}
                     transition={{ duration: 0.5 }}
@@ -123,7 +123,7 @@ export default function Home({ proyectos }: Props) {
                     </motion.svg>
                   </motion.h3>
                   <motion.span
-                    className={`h-[2px] block bg-black absolute bottom-0 left-0 right-0 mt-4`}
+                    className={`h-[2px]  bg-black absolute bottom-0 left-0 right-0 mt-4 hidden md:block`}
                     style={{ width: "0%" }}
                     animate={{ width: isHovered ? "100%" : "0%" }}
                     transition={{ duration: 0.5 }}
