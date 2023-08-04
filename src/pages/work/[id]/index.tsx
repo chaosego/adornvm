@@ -31,8 +31,7 @@ export default function Page({ workId }: Props) {
           styles={
             " font-black text-wrap text-left text-[10vw] md:text-[7vw] relative z-10 " +
             " tracking-[-3px] lg:tracking-[-6px] " +
-            " leading-[160vh] " 
-            //bajar el texto en mobile y tablet y subirlo en desktop y laptop
+            " leading-[150vh] "
           }
         />
         <main className="mx-8 lg:mx-24  ">
