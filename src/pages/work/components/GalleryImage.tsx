@@ -28,7 +28,7 @@ const GalleryImage = ({ src, size_keyword }: ImageProps) => {
     <motion.img
       src={src}
       alt={src}
-      whileHover={{ scale: 0.5 }}
+      whileHover={{ scale: 1.01 }}
       className={`${sizeConfig[size_keyword]} h-full object-cover`}
       ref={imgRef}
       initial={{ opacity: 0, scale: 0.5 }}
