@@ -40,7 +40,7 @@ export default function Page({ workId }: Props) {
             <div className="flex justify-between uppercase ">
               <div className="flex flex-col">
                 <h3>cliente</h3>
-                <h3 className="text-xs">{workId.cliente}</h3>
+                <h3 className="text-xs text-clip">{workId.cliente}</h3>
               </div>
               <div className="flex flex-col">
                 <h3>rol</h3>
