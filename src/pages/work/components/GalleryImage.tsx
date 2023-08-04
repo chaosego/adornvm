@@ -28,13 +28,13 @@ const GalleryImage = ({ src, size_keyword }: ImageProps) => {
     <motion.img
       src={src}
       alt={src}
-      whileHover={{ scale: 1.1 }}
+      whileHover={{ scale: 0.5 }}
       className={`${sizeConfig[size_keyword]} h-full object-cover`}
       ref={imgRef}
       initial={{ opacity: 0, scale: 0.5 }}
       animate={imgInView ? { opacity: 1, scale: 1 } : {}}
       exit={{ opacity: 0, scale: 0.5 }}
-      transition={{ duration: 0.5 }}
+      transition={{ duration: 0.3 }}
     />
   );
 };
