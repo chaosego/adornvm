@@ -60,7 +60,6 @@ export default function Home({ proyectos }: Props) {
           <div className="flex justify-center items-center pt-12">
             {displayedWorks.length < proyectos.length ? (
               <div
-                className="relative"
                 onMouseEnter={() => setIsHovered(true)}
                 onMouseLeave={() => setIsHovered(false)}
               >
@@ -97,7 +96,6 @@ export default function Home({ proyectos }: Props) {
               </div>
             ) : (
               <div
-                className="relative"
                 onMouseEnter={() => setIsHovered(true)}
                 onMouseLeave={() => setIsHovered(false)}
               >
