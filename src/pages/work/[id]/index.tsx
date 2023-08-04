@@ -38,7 +38,7 @@ export default function Page({ workId }: Props) {
           <article className="h-full">
             <span className="h-[1px] mb-4 block bg-[#EBE4E4] "></span>
             <div className="flex justify-between uppercase ">
-              <div className="flex flex-col">
+              <div className="flex flex-col max-w-[40%]">
                 <h3>cliente</h3>
                 <h3 className="text-xs text-clip">{workId.cliente}</h3>
               </div>
