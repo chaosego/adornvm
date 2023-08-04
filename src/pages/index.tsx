@@ -129,7 +129,7 @@ export default function Home({ proyectos }: Props) {
                   />
                 </motion.button>
               </div>
-            )}VW
+            )}
           </div>
         </section>
 
