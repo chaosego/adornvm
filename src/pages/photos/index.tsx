@@ -29,7 +29,7 @@ export default function Photos() {
       <section className="mx-8 lg:mx-16 xl:mx-24 h-full ">
         <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {images.map((image, index) => (
-            <Card key={image.name} image={image} index={index} />
+            <Card key={image.name} image={image.name} index={index} />
           ))}
         </div>
       </section>

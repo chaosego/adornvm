@@ -1,14 +1,11 @@
 import { motion, useInView } from "framer-motion";
 import React, { useRef } from "react";
-type Image = {
-  name: string;
-};
 
 const Card = ({
   image,
   index,
 }: {
-  image: Image;
+  image: string;
   index: number;
   key: string;
 }) => {
@@ -16,7 +13,7 @@ const Card = ({
   const divInView = useInView(divRef, { once: true });
   return (
     <motion.div
-      key={image.name}
+      key={image}
       ref={divRef}
       initial={{ opacity: 0 }}
       animate={
@@ -30,8 +27,8 @@ const Card = ({
       transition={{ duration: 2 }}
     >
       <img
-        src={`https://kiubjdmfcguvgiurzqpq.supabase.co/storage/v1/object/public/Fotografias/DSC/${image.name}`}
-        alt={image.name}
+        src={`https://kiubjdmfcguvgiurzqpq.supabase.co/storage/v1/object/public/Fotografias/DSC/${image}`}
+        alt={image}
         className="w-full h-full object-cover"
         loading="lazy"
       />
