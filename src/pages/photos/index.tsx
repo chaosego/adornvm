@@ -26,7 +26,19 @@ export default function Page({ images }: { images: Image[] }) {
 }
 
 export async function getStaticProps() {
-  const data = await supabase.storage.from("Fotografias").list("DSC");
+  const { data, error } = await supabase.storage
+    .from("Fotografias")
+    .list("DSC");
+
+  if (error) {
+    console.log(error);
+    return {
+      props: {
+        notFound: true,
+      },
+    };
+  }
+
   return {
     props: {
       images: data,
