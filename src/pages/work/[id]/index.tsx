@@ -128,7 +128,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
   }
 
   const paths = proyectos.map(({ id }) => ({
-    params: { id: encodeURIComponent(id).toLowerCase() },
+    params: { id: encodeURIComponent(id) },
   }));
 
   return { paths, fallback: "blocking" };

@@ -6,6 +6,7 @@
 body {
   user-select: none;
   scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
 }
 
 h3 {
@@ -54,4 +55,3 @@ body.contact::-webkit-scrollbar-thumb {
 body.contact::-webkit-scrollbar-track {
   background: var(--scrollbar-track-contact);
 }
-
