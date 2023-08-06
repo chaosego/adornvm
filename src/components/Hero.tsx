@@ -40,7 +40,6 @@ export default function Hero({
                     mass: 1,
                     delay: 0.1 + index * 0.2,
                   }}
-                  
                 >
                   {line}
                 </motion.span>
@@ -71,11 +70,7 @@ export default function Hero({
         </h1>
       </main>
       {Profile && (
-        <Image
-          priority
-          quality={100}
-          width={805}
-          height={1080}
+        <img
           src={Profile}
           alt={text}
           className="absolute bottom-0 z-[1] h-full w-auto opacity-[50%] right-0 object-cover"
