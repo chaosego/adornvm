@@ -9,7 +9,7 @@ export default function Page({ images }: { images: Image[] }) {
     <Layout title="Fotografias" color="bg-[#202023]">
       <section className="mx-8 lg:mx-16 xl:mx-24 h-full ">
         <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-          {images?.map((image) => (
+          {images.map((image) => (
             <div key={image.name}>
               <img
                 src={`https://kiubjdmfcguvgiurzqpq.supabase.co/storage/v1/object/public/Fotografias/DSC/${image.name}`}
